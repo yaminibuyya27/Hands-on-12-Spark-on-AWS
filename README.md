@@ -195,6 +195,18 @@ You will also find the complete, cleaned dataset in `s3://handsonfinalprocessed/
 
 ![S3 Output Detail](screenshots/7b_s3_output_folders.png)
 
+### Daily Review Counts
+
+![Daily Counts](screenshots/8b_daily_counts_result.png)
+
+### Top 5 Customers
+
+![Top 5 Customers](screenshots/8d_rating_distribution_result.png)
+
+### Rating Distribution
+
+![Rating Distribution](screenshots/8c_top5_customers_result.png)
+
 ---
 
 ## 🧹 Cleanup
