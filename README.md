@@ -52,8 +52,8 @@ Follow these steps to deploy the pipeline in your own AWS account.
 
 Create two S3 buckets with globally unique names:
 
-- `handsonfinallanding`: This is where you will upload your raw data.
-- `handsonfinalprocessed`: This is where the processed data and query results will be stored.
+- `handsonfinallandingyamini`: This is where you will upload your raw data.
+- `handsonfinalprocessedyamini`: This is where the processed data and query results will be stored.
 
 ### S3 Buckets Created
 
@@ -148,7 +148,7 @@ The new Lambda role needs permission to start a Glue job.
 1.  Go back to your Lambda function's main page.
 2.  Click **Add trigger**.
 3.  Select **S3** as the source.
-4.  Select your `handsonfinallanding` bucket.
+4.  Select your `handsonfinallandingyamini` bucket.
 5.  Set the **Event type** to `s3:ObjectCreated:*` (or "All object create events").
 6.  Acknowledge the recursive invocation warning and click **Add**.
 
@@ -163,7 +163,7 @@ The new Lambda role needs permission to start a Glue job.
 Your pipeline is now fully deployed and automated!
 
 1.  Take the sample `reviews.csv` file from the `data/` directory.
-2.  Upload `reviews.csv` to the root of your `handsonfinallanding` S3 bucket.
+2.  Upload `reviews.csv` to the root of your `handsonfinallandingyamini` S3 bucket.
 3.  This will trigger the Lambda, which in turn starts the Glue job.
 4.  You can monitor the job's progress in the **AWS Glue** console under the **Monitoring** tab.
 
@@ -179,11 +179,11 @@ Your pipeline is now fully deployed and automated!
 
 ## 📈 Query Results
 
-After the job (which may take 2-3 minutes to run), navigate to your `handsonfinalprocessed` bucket. You will find the results in the `Athena Results/` folder, organized into sub-folders for each query:
+After the job (which may take 2-3 minutes to run), navigate to your `handsonfinalprocessedyamini` bucket. You will find the results in the `Athena Results/` folder, organized into sub-folders for each query:
 
-- `s3://handsonfinalprocessed/Athena Results/daily_review_counts/`
-- `s3://handsonfinalprocessed/Athena Results/top_5_customers/`
-- `s3://handsonfinalprocessed/Athena Results/rating_distribution/`
+- `s3://handsonfinalprocessedyamini/Athena Results/daily_review_counts/`
+- `s3://handsonfinalprocessedyamini/Athena Results/top_5_customers/`
+- `s3://handsonfinalprocessedyamini/Athena Results/rating_distribution/`
 
 You will also find the complete, cleaned dataset in `s3://handsonfinalprocessed/processed-data/`.
 
@@ -213,7 +213,7 @@ You will also find the complete, cleaned dataset in `s3://handsonfinalprocessed/
 
 To avoid any future charges (especially if you're on the Free Tier), be sure to delete the resources you created:
 
-1.  Empty and delete the `handsonfinallanding` and `handsonfinalprocessed` S3 buckets.
+1.  Empty and delete the `handsonfinallandingyamini` and `handsonfinalprocessedyamini` S3 buckets.
 2.  Delete the `start_glue_job_trigger` Lambda function.
 3.  Delete the `process_reviews_job` Glue job.
 4.  Delete the `AWSGlueServiceRole-Reviews` IAM role.
